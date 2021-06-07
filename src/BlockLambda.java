@@ -14,6 +14,8 @@ public class BlockLambda {
         Scanner scan = new Scanner(System.in);
         String n = scan.next();
 
+        scan.close();
+
         method1(n); }
 
     static void method1 (String n) {
@@ -21,7 +23,7 @@ public class BlockLambda {
         int y = 5;
 
         if (n.equals("1")) {
-            MyNumber factorial = (x) -> {
+            IFunctional<Integer> factorial = (x) -> {
                 int result = 1;
                 for (int i = 1; i <= x; i++)
                     result = i * result;
@@ -30,11 +32,11 @@ public class BlockLambda {
             System.out.println(factorial.func(y));
         } else {
             if (n.equals("2")) {
-                MyString reverse = (str) -> {
+                IFunctional<String> reverse = (str) -> {
                     new StringBuilder(str).reverse().toString();
                     return new StringBuilder(str).reverse().toString();
                 };
-                System.out.println(reverse.string(str1));
+                System.out.println(reverse.func(str1));
             }
         }
     }
